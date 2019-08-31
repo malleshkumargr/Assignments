@@ -1,0 +1,32 @@
+
+
+function reverseVowels(a) {
+    const vowelsToReverse = [];
+    const vowels = 'aeiou';
+    for (let i = 0; i < a.length; i++) {
+        if (vowels.indexOf(a[i]) > -1)  {
+            vowelsToReverse.push(a[i]);
+        }
+    }
+    let lastIndex = vowelsToReverse.length - 1;
+    const strArray = a.split('');
+    for (let i = 0; i < strArray.length; i++) {
+        if (vowels.indexOf(strArray[i]) > -1) {
+            strArray[i] = vowelsToReverse[lastIndex];
+            lastIndex--;
+        }
+    }
+
+    if (a !== strArray.join('')) {
+        return strArray.join('');
+    } else {
+        return a;
+    }
+}
+
+
+console.log(reverseVowels("Hello!"));
+console.log(reverseVowels("Tomatoes"));
+console.log(reverseVowels("Reverse Vowels In A String"));
+console.log(reverseVowels("aeiou"));
+console.log(reverseVowels("why try, shy fly?"));
